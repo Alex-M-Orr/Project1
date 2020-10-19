@@ -1,6 +1,6 @@
 package com.projectone.model;
 
-public class User {
+public class Users {
 	
 	private int userID;
 	private String userUsername;
@@ -10,7 +10,7 @@ public class User {
 	private String userEmail;
 	private int userRoleId;
 	
-	public User(int userID, String userUsername, String userPassword, String userFirstName, String userLastName,
+	public Users(int userID, String userUsername, String userPassword, String userFirstName, String userLastName,
 			String userEmail, int userRoleId) {
 		super();
 		this.userID = userID;
