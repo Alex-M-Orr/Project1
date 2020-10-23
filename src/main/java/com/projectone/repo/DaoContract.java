@@ -27,10 +27,17 @@ public interface DaoContract <T, I> {
 	 * */
 	T update(T t);
 	
+	
 	/**
-	 * @param i the pk of the instance to be deleted
+	 * @param t the instance to create
+	 * @return the created instance;
+	 * */
+	T Create(T t);
+	
+	/**
+	 * @param t the instance to be deleted
 	 * @return return how many were removed;
 	 * */
 	
-	int delete (I i);
+	int delete (T t);
 }

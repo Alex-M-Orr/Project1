@@ -33,4 +33,9 @@ public class UsersDaoTest {
 		user = ud.update(user);
 		assertFalse(user == null);
 	}
+	@Test
+	public void createTest() {
+		Users user = new Users(0, "Mason1", "poggers", "Mason", "Wallis", "mason@gmail.com",1);
+		assertFalse(ud.Create(user) == null);
+	}
 }

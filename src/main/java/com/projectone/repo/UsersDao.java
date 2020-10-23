@@ -67,10 +67,41 @@ public class UsersDao implements DaoContract<Users, Integer>{
 		return null;
 	}
 
+	//i don't think i want to be able to delete users?
 	@Override
-	public int delete(Integer i) {
-		// TODO Auto-generated method stub
+	public int delete(Users t) {
+		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+			String sql = "delete from ers_users where user_id = ?";
+			PreparedStatement s = conn.prepareStatement(sql);
+			s.setInt(1, t.getUserID());
+			s.executeUpdate();
+			s.close();
+			return 1;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return 0;
+	}
+
+	@Override
+	public Users Create(Users t) {
+		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+			String sql = "insert into ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id)"
+					+ " values (?,?,?,?,?,?)";
+			PreparedStatement s = conn.prepareStatement(sql);
+			s.setString(1, t.getUsername());
+			s.setString(2, t.getPassword());
+			s.setString(3, t.getUserFirstName());
+			s.setString(4, t.getUserLastName());
+			s.setString(5, t.getUserEmail());
+			s.setInt(6, t.getUserRoleId());
+			s.executeUpdate();
+			s.close();
+			return t;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

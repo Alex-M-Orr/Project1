@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Reimbursement {
 	
 	private int reimbId;
-	private int reimbAmount;
+	private double reimbAmount;
 	private LocalDateTime reimbSubmitted;
 	private LocalDateTime reimbResolved;
 	private String reimbDescription;
@@ -16,7 +16,7 @@ public class Reimbursement {
 	private int reimbStatusId;
 	private int reimbTypeId;
 	
-	public Reimbursement(int reimbId, int reimbAmount, LocalDateTime reimbSubmitted, LocalDateTime reimbResolved,
+	public Reimbursement(int reimbId, double reimbAmount, LocalDateTime reimbSubmitted, LocalDateTime reimbResolved,
 			String reimbDescription, byte[] reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
 			int reimbTypeId) {
 		super();
@@ -31,6 +31,20 @@ public class Reimbursement {
 		this.reimbStatusId = reimbStatusId;
 		this.reimbTypeId = reimbTypeId;
 	}
+	public Reimbursement(double reimbAmount, String reimbDescription, int reimbAuthor, int reimbTypeId) {
+		super();
+		this.reimbId = 0;
+		this.reimbAmount = reimbAmount;
+		this.reimbSubmitted = LocalDateTime.now();
+		this.reimbResolved = null;
+		this.reimbDescription = reimbDescription;
+		this.reimbReceipt = null;
+		this.reimbAuthor = reimbAuthor;
+		this.reimbResolver = 0;
+		this.reimbStatusId = 1;
+		this.reimbTypeId = reimbTypeId;
+		
+	}
 	
 	public int getReimbId() {
 		return reimbId;
@@ -38,10 +52,10 @@ public class Reimbursement {
 	public void setReimbId(int reimbId) {
 		this.reimbId = reimbId;
 	}
-	public int getReimbAmount() {
+	public double getReimbAmount() {
 		return reimbAmount;
 	}
-	public void setReimbAmount(int reimbAmount) {
+	public void setReimbAmount(double reimbAmount) {
 		this.reimbAmount = reimbAmount;
 	}
 	public LocalDateTime getReimbSubmitted() {
