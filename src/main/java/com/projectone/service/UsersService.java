@@ -23,4 +23,8 @@ public class UsersService {
 	public Users update(Users t) {
 		return udao.update(t);
 	}
+	public Users login(String username, String password) {
+		
+		return udao.login(username, password);
+	}
 }

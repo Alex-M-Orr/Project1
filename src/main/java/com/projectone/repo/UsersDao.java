@@ -104,4 +104,23 @@ public class UsersDao implements DaoContract<Users, Integer>{
 		return null;
 	}
 
+	public Users login(String username, String password) {
+		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+			String sql = "select * from ers_users where ers_username = ? and ers_password = md5(? || ? || ?)";
+			PreparedStatement s = conn.prepareStatement(sql);
+			s.setString(1, username);
+			s.setString(2, username);
+			s.setString(3, password);
+			s.setString(4, "clown");
+			ResultSet rs = s.executeQuery();
+			rs.next();
+			Users user = new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+			s.close();
+			rs.close();
+			return user;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

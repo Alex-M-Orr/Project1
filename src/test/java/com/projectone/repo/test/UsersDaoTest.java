@@ -38,4 +38,11 @@ public class UsersDaoTest {
 		Users user = new Users(0, "Mason1", "poggers", "Mason", "Wallis", "mason@gmail.com",1);
 		assertFalse(ud.Create(user) == null);
 	}
+	@Test
+	public void loginTest() {
+		Users user = ud.login("Alex", "aorr123");
+		System.out.println(user.toString());
+		assertFalse(user == null);
+
+	}
 }
