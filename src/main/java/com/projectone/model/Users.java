@@ -3,19 +3,15 @@ package com.projectone.model;
 public class Users {
 	
 	private int userID;
-	private String userUsername;
-	private String userPassword;
 	private String userFirstName;
 	private String userLastName;
 	private String userEmail;
 	private int userRoleId;
 	
-	public Users(int userID, String userUsername, String userPassword, String userFirstName, String userLastName,
+	public Users(int userID, String userFirstName, String userLastName,
 			String userEmail, int userRoleId) {
 		super();
 		this.userID = userID;
-		this.userUsername = userUsername;
-		this.userPassword = userPassword;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.userEmail = userEmail;
@@ -27,18 +23,6 @@ public class Users {
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
-	}
-	public String getUserUsername() {
-		return userUsername;
-	}
-	public void setUserUsername(String userUsername) {
-		this.userUsername = userUsername;
-	}
-	public String getUserPassword() {
-		return userPassword;
-	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
 	}
 	public String getUserFirstName() {
 		return userFirstName;
@@ -67,9 +51,8 @@ public class Users {
 	
 	@Override
 	public String toString() {
-		return "User [userID=" + userID + ", userUsername=" + userUsername + ", userPassword=" + userPassword
-				+ ", userFirstName=" + userFirstName + ", userLastName=" + userLastName + ", userEmail=" + userEmail
-				+ ", userRoleId=" + userRoleId + "]";
+		return "User [userID=" + userID + ", userFirstName=" + userFirstName + ", userLastName=" + userLastName + 
+				", userEmail=" + userEmail + ", userRoleId=" + userRoleId + "]";
 	}
 	
 }

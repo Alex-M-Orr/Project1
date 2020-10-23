@@ -12,7 +12,7 @@ public class EnvironmentConnectionUtil {
 //	private String username = System.getenv("username");
 //	private String password = System.getenv("password");
 	
-	private final String url="jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project_0";
+	private final String url="jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project_1";
 	private final String username="project1_db_admin";
 	private final String password="Aorr1996!";
 	private static EnvironmentConnectionUtil instance;
