@@ -16,14 +16,14 @@ public class RequestForwarder {
 			return "html/index.html";
 		}
 	}
-//	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
-//		switch(req.getRequestURI()) {
-//		case "/HallowsMonsters/all.json":
-//			new MonsterDataController().sendAllData(res);
-//			break;
-//		case "/HallowsMonsters/monster.json":
-//			new SaveController().save(req, res);
-//			break;
-//		}
-//	}
+	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		switch(req.getRequestURI()) {
+		case "/HallowsMonsters/*.json":
+			new UsersController().sendAllData(res);
+			break;
+		case "/HallowsMonsters/monster.json":
+			new SaveController().save(req, res);
+			break;
+		}
+	}
 }
