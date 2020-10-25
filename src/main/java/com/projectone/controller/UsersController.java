@@ -15,14 +15,23 @@ public class UsersController {
 	public UsersController() {
 		this(new UsersService());
 	}
-	public Users login(HttpServletRequest req) {
+	public String login(HttpServletRequest req) {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		Users user = us.login(username, password);
-		return user;
+		if(user != null)
+			return "html/user.html";
+		else
+			return "html/index.html";
 	}
 	public Users registUser(HttpServletRequest req) {
-		
-		return null;
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
+		String email = req.getParameter("email");
+		int roleId = 1;
+		Users newUser = new Users(0, username, password, firstName, lastName, email, roleId);
+		return us.registUser(newUser);
 	}
 }
