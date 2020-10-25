@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.projectone.controller.UsersController;
+import com.projectone.controller.UsersDataController;
 
 public class RequestForwarder {
 	public String routes(HttpServletRequest req) {
@@ -18,11 +19,8 @@ public class RequestForwarder {
 	}
 	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		switch(req.getRequestURI()) {
-		case "/HallowsMonsters/*.json":
-			new UsersController().sendAllData(res);
-			break;
-		case "/HallowsMonsters/monster.json":
-			new SaveController().save(req, res);
+		case "/Project1/all.json":
+			new UsersDataController().sendAllData(res);
 			break;
 		}
 	}

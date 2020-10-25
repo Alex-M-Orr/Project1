@@ -11,7 +11,7 @@ import com.projectone.service.UsersService;
 public class UsersDataController {
 	private UsersService us;
 
-	public UsersDataController(UsersService ms) {
+	public UsersDataController(UsersService us) {
 		super();
 		this.us = us;
 	}
@@ -28,7 +28,5 @@ public class UsersDataController {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }
 

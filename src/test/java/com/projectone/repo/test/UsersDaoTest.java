@@ -19,6 +19,7 @@ public class UsersDaoTest {
 	@Test
 	public void findAllTest() {
 		List<Users> users = ud.findAll();
+		System.out.println(users.toString());
 		assertFalse(users.size()==0);
 	}
 	@Test
