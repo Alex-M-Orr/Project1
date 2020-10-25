@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projectone.model.Users;
 import com.projectone.service.UsersService;
 
@@ -23,7 +24,7 @@ public class UsersDataController {
 	public void sendAllData(HttpServletResponse resp) {
 		List<Users> users = us.findAll();
 		try {
-			resp.getWriter().println(users.toString());
+			resp.getWriter().println(new ObjectMapper().writeValueAsString(users));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

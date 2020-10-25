@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class EnvironmentConnectionUtil {
-//	private String url = System.getenv("url");
-//	private String username = System.getenv("username");
-//	private String password = System.getenv("password");
+	private String url = System.getenv("url");
+	private String username = System.getenv("username");
+	private String password = System.getenv("password");
 	
 	{
 		try {
@@ -19,10 +19,6 @@ public class EnvironmentConnectionUtil {
 			e.printStackTrace();
 		}
 	}
-	
-	private final String url="jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project_1";
-	private final String username="project1_db_admin";
-	private final String password="Aorr1996!";
 	private static EnvironmentConnectionUtil instance;
 
 	private EnvironmentConnectionUtil() {

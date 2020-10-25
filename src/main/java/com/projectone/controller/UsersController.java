@@ -7,7 +7,7 @@ import com.projectone.service.UsersService;
 
 public class UsersController {
 	private UsersService us;
-	
+
 	public UsersController(UsersService us) {
 		super();
 		this.us = us;
@@ -19,10 +19,15 @@ public class UsersController {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		Users user = us.login(username, password);
-		if(user != null)
-			return "html/user.html";
-		else
-			return "html/index.html";
+		if(user != null) {
+			//valid login
+			//make session
+			return "user.html";
+		}
+		else {
+			//invalid login
+			return "index.html";
+		}
 	}
 	public Users registUser(HttpServletRequest req) {
 		String username = req.getParameter("username");
