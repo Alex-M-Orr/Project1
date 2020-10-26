@@ -9,11 +9,13 @@ import com.projectone.controller.UsersController;
 import com.projectone.controller.UsersDataController;
 
 public class RequestForwarder {
+	UsersController uc = new UsersController();
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
 		case "/Project1/html/login.page":
-			System.out.println("in login.page forwarder");
-			return new UsersController().login(req);
+			return uc.login(req);
+		case "/Project1/html/register.page":
+			return uc.registerUser(req);
 		default: 
 			System.out.println("in routes default");
 			return "index.html";

@@ -26,7 +26,7 @@ public class UsersService {
 	public Users login(String username, String password) {
 		return udao.login(username, password);
 	}
-	public Users registUser(Users u) {
+	public Users registerUser(Users u) {
 		return udao.Create(u);
 	}
 }
