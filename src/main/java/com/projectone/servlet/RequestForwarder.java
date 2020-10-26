@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.projectone.controller.ReimbursementDataController;
 import com.projectone.controller.UsersController;
 import com.projectone.controller.UsersDataController;
 
@@ -25,6 +26,9 @@ public class RequestForwarder {
 		switch(req.getRequestURI()) {
 		case "/Project1/userslist.json":
 			new UsersDataController().sendAllData(res);
+			break;
+		case "/Project1/reimbursementlist.json":
+			new ReimbursementDataController().sendAllData(res);
 			break;
 		}
 	}
