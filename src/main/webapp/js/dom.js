@@ -1,6 +1,25 @@
+var filterTable=0;
+
 function renderReimbursementTable(reimbursements){
   document.getElementById("listAllReimbursements").innerHTML = "";
   for(const reimbursement of reimbursements){
+    if(reimbursement.reimbStatusId != filterTable && filterTable!=0){
+      continue;
+    }
+    let status;
+    switch (reimbursement.reimbStatusId) {
+      case 1:
+        status = "Pending";
+        break;
+      case 2:
+        status = "Approved";
+        break;
+      case 3:
+        status = "Denied";
+        break;
+      default:
+        console.log(status);
+    }
     const tr = document.createElement("tr");
     const idTd = document.createElement("td");
     const amountTd = document.createElement("td");
@@ -15,11 +34,20 @@ function renderReimbursementTable(reimbursements){
     idTd.innerText = reimbursement.reimbId;
     amountTd.innerText = reimbursement.reimbAmount;
     descriptionTd.innerText = reimbursement.reimbDescription;
-    subDateTd.innerText = reimbursement.reimbSubmitted;
-    resDateTd.innerText = reimbursement.reimbResolved;
+    subDateTd.innerText = reimbursement.reimbSubmitted.month + " "
+                        + reimbursement.reimbSubmitted.dayOfMonth + " "
+                        + reimbursement.reimbSubmitted.year;
+    if(reimbursement.reimbResolved != null){
+      resDateTd.innerText = reimbursement.reimbResolved.month + " "
+                        + reimbursement.reimbResolved.dayOfMonth + " "
+                        + reimbursement.reimbResolved.year;
+    }
+    else {
+      resDateTd.innerText = reimbursement.reimbResolved;
+    }
     authorTd.innerText = reimbursement.reimbAuthor;
     resolverTd.innerText = reimbursement.reimbResolver;
-    statusTd.innerText = reimbursement.reimbStatusId;
+    statusTd.innerText = status;
     typeTd.innerText = reimbursement.reimbTypeId;
 
     tr.append(idTd, amountTd, descriptionTd, subDateTd, resDateTd, authorTd, resolverTd, statusTd, );
@@ -45,5 +73,12 @@ function renderUsersTable(users){
   }
 }
 // renderTable(mockedUsers);
-asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
+
+function setFilter(){
+  filterTable = document.getElementById("requestFilter").value;
+  asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
+}
+function fetchReimbTable(){
+  asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
+}
 asyncFetch("http://localhost:8080/Project1/userslist.json", renderUsersTable);

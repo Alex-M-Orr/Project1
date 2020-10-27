@@ -5,23 +5,39 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.projectone.config.SessionController;
+import com.projectone.controller.ReimbursementController;
 import com.projectone.controller.ReimbursementDataController;
 import com.projectone.controller.UsersController;
 import com.projectone.controller.UsersDataController;
+import com.projectone.model.Users;
 
 public class RequestForwarder {
 	UsersController uc = new UsersController();
+	ReimbursementController rc = new ReimbursementController();
+	
+	//setting session for testing purposes
+	SessionController sc = new SessionController();
+	Users testuser = new Users(14, "Mason", "Wallis", "mason@gmail.com", 1);
+	Users testManager = new Users(11, "Alex", "Orr", "Alex@gmail.com", 2);
+	
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
 		case "/Project1/html/login.page":
 			return uc.login(req);
 		case "/Project1/html/register.page":
 			return uc.registerUser(req);
+		case "/Project1/html/reimbursementRequest.page":
+			sc.setSession(req, testuser);
+			return rc.requestReimbursement(req);
+		case "/Project1/html/requestresolution.page":
+			sc.setSession(req, testManager);
+			return rc.updateReimbursement(req);
 		default: 
-			System.out.println("in routes default");
 			return "index.html";
 		}
 	}
+	
 	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		switch(req.getRequestURI()) {
 		case "/Project1/userslist.json":
@@ -30,6 +46,8 @@ public class RequestForwarder {
 		case "/Project1/reimbursementlist.json":
 			new ReimbursementDataController().sendAllData(res);
 			break;
+		
+		
 		}
 	}
 }

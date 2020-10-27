@@ -6,7 +6,14 @@
     <script defer type="text/javascript" src="../js/network.js"></script>
     <script defer type="text/javascript" src="../js/dom.js"></script>
   </head>
-  <body>
+  <body onload="fetchReimbTable()">
+      <select id="requestFilter" name="filter" onchange="setFilter()">
+        <option disabled default>Select a filter</option>
+        <option value="0">No Filter</option>
+        <option value="1">Pending</option>
+        <option value="2">Approved</option>
+        <option value="3">Denied</option>
+      </select>
     <table>
       <thead>
         <tr>
@@ -22,8 +29,19 @@
         </tr>
       </thead>
       <tbody id="listAllReimbursements">
-        
+
       </tbody>
     </table>
+    <h4>Approve/Deny Requests</h4>
+    <form action="requestresolution.page" method="post">
+      <label for="requestId">Enter the Request ID:</label>
+      <input type="number"  name="requestId">
+      <label for="resolution">Please select an action</label>
+      <select name="resolution">
+        <option value="2">Approve</option>
+        <option value="3">Deny</option>
+      </select>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
