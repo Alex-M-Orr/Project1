@@ -26,12 +26,12 @@ public class UsersController {
 			//valid login
 			System.out.println("sending to user.html");
 			sc.setSession(req, user);
-			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/html/user.html";
+			return "/html/user.html";
 		}
 		else {
 			//invalid login
 			System.out.println("defaulting to index");
-			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/";
+			return "/html/index.html";
 		}
 	}
 	public String registerUser(HttpServletRequest req) {
@@ -43,10 +43,10 @@ public class UsersController {
 		int roleId = 1;
 		Users newUser = new Users(0, username, password, firstName, lastName, email, roleId);
 		if(us.registerUser(newUser) != null) {
-			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/";
+			return "/html/index.html";
 		}
 		else {
-			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/";
+			return "/html/index.html";
 		}		
 	}
 }
