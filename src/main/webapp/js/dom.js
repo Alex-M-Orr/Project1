@@ -50,7 +50,7 @@ function renderReimbursementTable(reimbursements){
     statusTd.innerText = status;
     typeTd.innerText = reimbursement.reimbTypeId;
 
-    tr.append(idTd, amountTd, descriptionTd, subDateTd, resDateTd, authorTd, resolverTd, statusTd, );
+    tr.append(idTd, amountTd, descriptionTd, subDateTd, resDateTd, authorTd, resolverTd, statusTd, typeTd);
     document.getElementById("listAllReimbursements").append(tr);
   }
 }
@@ -81,4 +81,6 @@ function setFilter(){
 function fetchReimbTable(){
   asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
 }
+
+
 asyncFetch("http://localhost:8080/Project1/userslist.json", renderUsersTable);

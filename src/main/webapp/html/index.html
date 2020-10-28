@@ -1,7 +1,9 @@
 <html>
 <head>
 	<title>ClownTown - The Worlds Largest Traveling Clown and Bear Circus</title>
+	<script defer type="text/javascript" src="../js/network.js"></script>
 	<script defer type="text/javascript" src="../js/login.js"></script>
+	<script defer type="text/javascript" src="../js/dom.js"></script>
 	<!--bootstrap, fonts, and css normalizer-->
 	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300|Ubuntu" rel="stylesheet">
@@ -9,6 +11,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 	<!--end bootstrap-->
+
 	<style>
 	/*scroll-behavior is the coolest style ever(not really but its sweet)*/
 	html {
@@ -60,18 +63,20 @@
 				<a href="#index-content-wrapper" class="nav-link text-light" >Pricing</a>
 			</li>
 		</ul>
+		<!--DROPDOWN MENU-->
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle text-light" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 					Account
 				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#loginModal" data-toggle="modal" >Login</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="myAccountDropDown">
+					<!--<a class="dropdown-item" href="#loginModal" data-toggle="modal" >Login</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#registerModal" data-toggle="modal" >Register</a>
+					<a class="dropdown-item" href="#registerModal" data-toggle="modal" >Register</a>-->
 				</div>
 			</li>
 		</ul>
+		<!--DROPDOWNMENU-->
 	</div>
 </nav>
 <!--Login modal-->

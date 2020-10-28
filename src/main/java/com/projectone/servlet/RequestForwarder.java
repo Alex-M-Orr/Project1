@@ -15,18 +15,18 @@ import com.projectone.model.Users;
 public class RequestForwarder {
 	UsersController uc = new UsersController();
 	ReimbursementController rc = new ReimbursementController();
-	
+
 	//setting session for testing purposes
 	SessionController sc = new SessionController();
 	Users testuser = new Users(14, "Mason", "Wallis", "mason@gmail.com", 1);
 	Users testManager = new Users(11, "Alex", "Orr", "Alex@gmail.com", 2);
-	
+
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
-		case "/Project1/login.page":
+		case "/Project1/html/login.page":
 			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
-		case "/Project1-0.0.1-SNAPSHOT/login.page":
+		case "/Project1-0.0.1-SNAPSHOT/html/login.page":
 			System.out.println("ROUTER TESTING ALEXORR 0.0.1-SNAPSHOT");
 			return uc.login(req);
 		case "/Project1/html/register.page":
@@ -42,10 +42,11 @@ public class RequestForwarder {
 			}
 			return rc.updateReimbursement(req);
 		default: 
+			System.out.println("default routing");
 			return "/html/index.html"; 
 		}
 	}
-	
+
 	public void data(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		switch(req.getRequestURI()) {
 		case "/Project1/userslist.json":
@@ -54,6 +55,8 @@ public class RequestForwarder {
 		case "/Project1/reimbursementlist.json":
 			new ReimbursementDataController().sendAllData(res);
 			break;
-			}
+		case "/Project1/userinfo.json":
+			new UsersDataController().getSessionData(res, req);
+		}
 	}
 }
