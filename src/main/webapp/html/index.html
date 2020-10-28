@@ -10,6 +10,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 	<!--end bootstrap-->
 	<style>
+	/*scroll-behavior is the coolest style ever(not really but its sweet)*/
+	html {
+		scroll-behavior: smooth;
+	}
 	p{
 		margin:0px;
 	}
@@ -22,11 +26,6 @@
 		min-height: 100vh;
 		min-width: 100vw;
 		z-index: -100;
-	}
-	#footer {
-		background-color:	#d9534f;
-		height: 50px;
-		width: 100%;
 	}
 	.my-blue-box{
 		height: 100%;
@@ -49,13 +48,16 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link text-light" href="#">About Us <span class="sr-only">(current)</span></a>
+				<a class="nav-link text-light" href="#">About Us</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link text-light" href="#">About Our Bears</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link text-light" href="#">Schedule</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-light" href="#">Pricing</a>
+				<a href="#index-content-wrapper" class="nav-link text-light" >Pricing</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
@@ -167,7 +169,7 @@
 	</div>
 	</div>
 </div>
-<div id="footer">
+<div id="footer" class="bg-danger" style="height: 50px; width: 100%;">
 	<p align="center" class="text-light">Bottom Text</p>
 </div>
 </body>
