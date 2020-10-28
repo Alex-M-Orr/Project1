@@ -25,13 +25,13 @@ public class ReimbursementDaoTest {
 	}
 	@Test
 	public void findByIdTest() {
-		Reimbursement reimbursement = rd.findById(1);
+		Reimbursement reimbursement = rd.findById(5);
 		System.out.println(reimbursement.toString());
 		assertFalse(reimbursement == null);
 	}
 	@Test
 	public void	updateTest() {
-		Reimbursement reimbursement = rd.findById(2);
+		Reimbursement reimbursement = rd.findById(5);
 		System.out.println(reimbursement.toString());
 		reimbursement.setReimbResolver(7);;
 		reimbursement.setReimbAmount(500);
@@ -40,14 +40,14 @@ public class ReimbursementDaoTest {
 		System.out.println(reimbursement.toString());
 		assertFalse(reimbursement == null);
 	}
-	@Test
-	public void deleteTest() {
-		Reimbursement r = rd.findById(1);
-		assertFalse(rd.delete(r) == 0);
-	}
+//	@Test
+//	public void deleteTest() {
+//		Reimbursement r = rd.findById(1);
+//		assertFalse(rd.delete(r) == 0);
+//	}
 	@Test
 	public void createTest() {
-		Reimbursement r = new Reimbursement(4000, "Sushi Dinner", 8, 3);
+		Reimbursement r = new Reimbursement(4000, "testing", 14, 3);
 		assertFalse(rd.Create(r) == null);
 	}
 }
