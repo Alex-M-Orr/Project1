@@ -24,14 +24,19 @@ public class RequestForwarder {
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
 		case "/Project1/html/login.page":
+			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
 		case "/Project1/html/register.page":
 			return uc.registerUser(req);
 		case "/Project1/html/reimbursementRequest.page":
-			sc.setSession(req, testuser);
+			if(sc.getSessionUser(req) == null) {
+				sc.setSession(req, testuser);
+			}
 			return rc.requestReimbursement(req);
 		case "/Project1/html/requestresolution.page":
-			sc.setSession(req, testManager);
+			if(sc.getSessionUser(req) == null) {
+				sc.setSession(req, testManager);
+			}
 			return rc.updateReimbursement(req);
 		default: 
 			return "index.html"; 
