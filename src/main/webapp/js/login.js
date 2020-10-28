@@ -28,4 +28,4 @@ function fetchuserinfo(){
   asyncFetch("http://localhost:8080/Project1/userinfo.json", renderDropDown);
 }
 
-fetchuserinfo();
+//fetchuserinfo();
