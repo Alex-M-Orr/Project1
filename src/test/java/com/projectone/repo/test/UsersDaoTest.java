@@ -16,11 +16,11 @@ public class UsersDaoTest {
 	public void setup() {
 		ud = new UsersDao();
 	}
-	@Test
-	public void findAllTest() {
-		List<Users> users = ud.findAll();
-		assertFalse(users.size()==0);
-	}
+//	@Test
+//	public void findAllTest() {
+//		List<Users> users = ud.findAll();
+//		assertFalse(users.size()==0);
+//	}
 //	@Test
 //	public void findByIdTest() {
 //		Users user = ud.findById(11);

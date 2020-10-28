@@ -17,11 +17,11 @@ public class ReimbursementDaoTest {
 	public void setup() {
 		rd = new ReimbursementDao();
 	}
-	@Test
-	public void findAllTest() {
-		List<Reimbursement> reimbursements = rd.findAll();
-		assertFalse(reimbursements.size()==0);
-	}
+//	@Test
+//	public void findAllTest() {
+//		List<Reimbursement> reimbursements = rd.findAll();
+//		assertFalse(reimbursements.size()==0);
+//	}
 //	@Test
 //	public void findByIdTest() {
 //		Reimbursement reimbursement = rd.findById(5);
