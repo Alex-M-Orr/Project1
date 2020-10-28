@@ -27,7 +27,7 @@ public class RequestForwarder {
 			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
 		case "/Project1-alpha/login.page":
-			System.out.println("ROUTER TESTING ALEXORR 0.0.1-SNAPSHOT");
+			System.out.println("ROUTER TESTING ALEXORR alpha");
 			return uc.login(req);
 		case "/Project1/html/register.page":
 			return uc.registerUser(req);
