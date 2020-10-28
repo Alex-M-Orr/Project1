@@ -24,12 +24,14 @@ public class UsersController {
 		Users user = us.login(username, password);
 		if(user != null) {
 			//valid login
+			System.out.println("sending to user.html");
 			sc.setSession(req, user);
-			return "user.html";
+			return "/html/user.html";
 		}
 		else {
 			//invalid login
-			return "index.html";
+			System.out.println("defaulting to index");
+			return "/html/index.html";
 		}
 	}
 	public String registerUser(HttpServletRequest req) {

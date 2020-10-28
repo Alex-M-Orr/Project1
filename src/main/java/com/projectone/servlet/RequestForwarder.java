@@ -23,11 +23,11 @@ public class RequestForwarder {
 	
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
-		case "/Project1/html/login.page":
+		case "/Project1/login.page":
 			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
-		case "/Project1-0.0.1-SNAPSHOT/html/login.page":
-			System.out.println("ROUTER TESTING ALEXORR");
+		case "/Project1-0.0.1-SNAPSHOT/login.page":
+			System.out.println("ROUTER TESTING ALEXORR 0.0.1-SNAPSHOT");
 			return uc.login(req);
 		case "/Project1/html/register.page":
 			return uc.registerUser(req);
@@ -54,8 +54,6 @@ public class RequestForwarder {
 		case "/Project1/reimbursementlist.json":
 			new ReimbursementDataController().sendAllData(res);
 			break;
-		
-		
 		}
 	}
 }
