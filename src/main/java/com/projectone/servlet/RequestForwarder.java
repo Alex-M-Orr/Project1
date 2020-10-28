@@ -42,7 +42,7 @@ public class RequestForwarder {
 			}
 			return rc.updateReimbursement(req);
 		default: 
-			return "/html/index.html"; 
+			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/"; 
 		}
 	}
 	
