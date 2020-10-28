@@ -2,12 +2,17 @@
 <head>
 	<title>ClownTown - The Worlds Largest Traveling Clown and Bear Circus</title>
 	<script defer type="text/javascript" src="../js/login.js"></script>
-	<!--bootstrap-->
+	<!--bootstrap, fonts, and css normalizer-->
+	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300|Ubuntu" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 	<!--end bootstrap-->
 	<style>
+	p{
+		margin:0px;
+	}
 	#bg-hero {
 		background-image: url(https://cdn10.phillymag.com/wp-content/uploads/sites/3/2017/11/OTO-Caribbean-Dynasty-UniverSoulCircus-900x600.jpg);
 		background-size: cover;
@@ -18,35 +23,24 @@
 		min-width: 100vw;
 		z-index: -100;
 	}
-	.my-red-box{
+	#footer {
+		background-color:	#d9534f;
+		height: 50px;
+		width: 100%;
+	}
+	.my-blue-box{
 		height: 100%;
-    background-color: rgba(91, 192, 222,.30);
-    background-position: center;
+		background-color: rgba(91, 192, 222,.30);
+		background-position: center;
+	}
+	.dropdown-item.active, .dropdown-item:active {
+		color: #fff;
+		text-decoration: none;
+		background-color: #d9534f;
 	}
 	</style>
 </head>
-<body style="height: 110vh">
-	<!--<div class="nav-wrapper">
-	<nav class="navbar navbar-dark bg-danger navbar-expang-lg">
-	<a class="navbar-brand" href="http://localhost:8080/Project1/html/index.html">ClownTown</a>
-	<div class="collapse navbar-collapse" id="navbarNav">
-	<ul class="navbar-nav">
-	<li class="nav-item active">
-	<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Features</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Pricing</a>
-</li>
-<li class="nav-item">
-<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>-->
+<body style="	font-family: 'Ubuntu', sans-serif">
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top text-light">
 	<a class="navbar-brand" href="http://localhost:8080/Project1/html/index.html">ClownTown</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,16 +130,45 @@
 <!--register modal-->
 <div id="bg-hero"></div>
 <div id="splash-wrapper" style="height:100vh;">
-	<div class="my-red-box" style="padding-top:150px">
+	<div class="my-blue-box" style="padding-top:150px">
 		<h1 align="center" class="text-light">
-			Welcome to ClownTown,
+			Welcome to <span class="text-danger"><b>ClownTown</b></span>,
 		</h1>
 		<h2 align="center" class="text-light">
 			The worlds largest traveling <br>Bear and Clown Circus!
 		</h2>
 	</div>
 </div>
-<div id="index-content-wrapper" class="bg-light"style="height:500px">
+<div id="index-content-wrapper" class="bg-light"style="min-height:500px; padding:50px 0px;">
+	<h1 align="center" class="text-danger">Sample Content Header</h1>
+	<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus leo non nibh fringilla facilisis. Donec vitae ex mauris. Sed eu fermentum diam. Sed at commodo purus, ut lacinia nibh. Etiam nec erat enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam dapibus dignissim consectetur. Donec ac volutpat enim, et euismod tortor. Nam id ornare lectus. Donec mollis turpis velit, sit amet pellentesque urna ornare sit amet. Vivamus blandit libero eget augue congue, eu ornare leo ultricies.</p><br>
+		<p>
+			Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vel accumsan justo. Duis dapibus nulla sit amet lectus bibendum, pharetra pulvinar eros auctor. Vestibulum in risus libero. Curabitur interdum dui pulvinar sapien ullamcorper, eget varius mauris consequat. Praesent felis augue, lobortis sed eros quis, vestibulum rhoncus lectus. Sed ut velit sem. Etiam ullamcorper, lorem tempor finibus venenatis, nisi ligula luctus urna, at imperdiet dolor ipsum ut nunc. Praesent sed mauris eget purus auctor viverra in feugiat ligula. Donec rhoncus eros ut enim tincidunt, ac eleifend enim fermentum. Aliquam blandit a elit non tempor. Nam efficitur ac leo sed tempus. Nullam ultricies mi non consequat posuere. Suspendisse a nisl magna.
+		</p><br>
+		<p>
+			Nam orci lectus, placerat sed laoreet eu, commodo vel velit. Sed vel nibh at lacus porttitor volutpat. Nulla ullamcorper sapien at felis viverra varius. Morbi vulputate nibh diam, vel venenatis sapien dignissim id. Sed at sodales erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas hendrerit est vestibulum turpis elementum blandit. Fusce tristique ante eros, non ornare ante viverra non. Fusce dui tellus, luctus ut maximus at, pellentesque sed elit. Suspendisse mollis nisl ante, feugiat congue libero dapibus eget. Suspendisse nisi lacus, vestibulum in ultricies consequat, placerat ut erat. Etiam sit amet imperdiet nibh. Aliquam ut nibh efficitur, maximus nulla at, placerat turpis. Aliquam ut justo sed dui dignissim molestie.
+		</p><br>
+		<p>
+			Integer elit eros, placerat quis diam at, condimentum blandit lectus. Etiam volutpat congue nisi, in varius dolor imperdiet ac. Aliquam non turpis egestas, placerat nulla a, sodales massa. Suspendisse nec erat eu purus bibendum pharetra vel nec mi. Sed nec tempor justo. Phasellus sit amet metus faucibus, maximus leo ut, vehicula magna. Ut condimentum commodo diam, et sodales odio volutpat nec. Praesent eget tortor vestibulum, euismod metus at, dictum mi.
+		</p><br>
+		<p>
+			Donec ut ligula ac odio ultrices aliquet. Fusce consectetur, velit eget suscipit lobortis, ipsum dui tempus enim, at placerat ex turpis eu neque. Vivamus nec dui rutrum, varius orci sit amet, fringilla nisl. Phasellus scelerisque nec arcu in cursus. Nam ultricies a libero sit amet tristique. Etiam at blandit libero. Nam sem ante, suscipit ut ultricies sed, laoreet id ex. Vestibulum aliquam auctor magna, eget elementum libero convallis sit amet.
+		</p><br>
+		<p>
+			Praesent efficitur diam ut tortor efficitur consequat. Curabitur ullamcorper nibh ac metus pellentesque porta. Aliquam dignissim lacinia pellentesque. Sed euismod id nulla ut consequat. Aenean sapien magna, placerat eget augue a, malesuada scelerisque est. Ut facilisis finibus dignissim. Nulla suscipit lobortis purus, eu pretium erat mollis sit amet. In justo arcu, tempor vel fermentum sed.
+		</p><br>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	</div>
+</div>
+<div id="footer">
+	<p align="center" class="text-light">Bottom Text</p>
 </div>
 </body>
 </html>
