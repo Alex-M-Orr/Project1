@@ -43,7 +43,7 @@ public class RequestForwarder {
 			return rc.updateReimbursement(req);
 		default: 
 			System.out.println("default routing");
-			return "/html/index.html"; 
+			return "/html/viewReimbursements.html"; 
 		}
 	}
 
