@@ -43,10 +43,10 @@ public class UsersController {
 		int roleId = 1;
 		Users newUser = new Users(0, username, password, firstName, lastName, email, roleId);
 		if(us.registerUser(newUser) != null) {
-			return "index.html";
+			return "/html/index.html";
 		}
 		else {
-			return "index.html";
+			return "/html/index.html";
 		}		
 	}
 }

@@ -42,7 +42,7 @@ public class RequestForwarder {
 			}
 			return rc.updateReimbursement(req);
 		default: 
-			return "index.html"; 
+			return "/html/index.html"; 
 		}
 	}
 	
