@@ -19,33 +19,32 @@ public class UsersDaoTest {
 	@Test
 	public void findAllTest() {
 		List<Users> users = ud.findAll();
-		System.out.println(users.toString());
 		assertFalse(users.size()==0);
 	}
-	@Test
-	public void findByIdTest() {
-		Users user = ud.findById(11);
-		assertFalse(user == null);
-	}
-	@Test
-	public void updateTest() {
-		Users user = ud.findById(11);
-		user.setUserEmail("aorr917@gmail.com");
-		user = ud.update(user);
-		assertFalse(user == null);
-	}
-	@Test
-	public void createTest() {
-		String uname = Math.random()*1000+"";
-		String email = Math.random()*1000+"@gmail.com";
-		Users user = new Users(0, uname, "test", "test", "test", email,1);
-		assertFalse(ud.Create(user) == null);
-	}
-	@Test
-	public void loginTest() {
-		Users user = ud.login("Alex", "aorr123");
-		System.out.println(user.toString());
-		assertFalse(user == null);
-
-	}
+//	@Test
+//	public void findByIdTest() {
+//		Users user = ud.findById(11);
+//		assertFalse(user == null);
+//	}
+//	@Test
+//	public void updateTest() {
+//		Users user = ud.findById(11);
+//		user.setUserEmail("aorr917@gmail.com");
+//		user = ud.update(user);
+//		assertFalse(user == null);
+//	}
+//	@Test
+//	public void createTest() {
+//		String uname = Math.random()*1000+"";
+//		String email = Math.random()*1000+"@gmail.com";
+//		Users user = new Users(0, uname, "test", "test", "test", email,1);
+//		assertFalse(ud.Create(user) == null);
+//	}
+//	@Test
+//	public void loginTest() {
+//		Users user = ud.login("Alex", "aorr123");
+//		System.out.println(user.toString());
+//		assertFalse(user == null);
+//
+//	}
 }
