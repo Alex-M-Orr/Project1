@@ -34,7 +34,7 @@ public class RequestForwarder {
 			sc.setSession(req, testManager);
 			return rc.updateReimbursement(req);
 		default: 
-			return "index.html";
+			return "index.html"; 
 		}
 	}
 	
