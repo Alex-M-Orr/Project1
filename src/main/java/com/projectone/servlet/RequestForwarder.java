@@ -23,7 +23,7 @@ public class RequestForwarder {
 
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
-		case "/Project1/html/login.page":
+		case "/Project1/login.page":
 			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
 		case "/Project1-0.0.1-SNAPSHOT/login.page":
