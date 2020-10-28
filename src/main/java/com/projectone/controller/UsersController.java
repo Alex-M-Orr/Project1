@@ -26,12 +26,12 @@ public class UsersController {
 			//valid login
 			System.out.println("sending to user.html");
 			sc.setSession(req, user);
-			return "user.html";
+			return "/html/user.html";
 		}
 		else {
 			//invalid login
 			System.out.println("defaulting to index");
-			return "index.html";
+			return "/html/index.html";
 		}
 	}
 	public String registerUser(HttpServletRequest req) {
