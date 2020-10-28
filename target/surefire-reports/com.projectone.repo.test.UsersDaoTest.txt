@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.projectone.repo.test.UsersDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.022 sec <<< FAILURE!
+Tests run: 5, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.027 sec <<< FAILURE!
 loginTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.UsersDaoTest.loginTest(UsersDaoTest.java:45)
@@ -39,7 +39,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-updateTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+updateTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.UsersDaoTest.updateTest(UsersDaoTest.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -76,7 +76,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-findAllTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+findAllTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.014 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.UsersDaoTest.findAllTest(UsersDaoTest.java:22)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -113,7 +113,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-findByIdTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+findByIdTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.004 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -154,7 +154,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-createTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+createTest(com.projectone.repo.test.UsersDaoTest)  Time elapsed: 0.004 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)

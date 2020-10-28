@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.projectone.repo.test.ReimbursementDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.251 sec <<< FAILURE!
-updateTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.06 sec  <<< ERROR!
+Tests run: 5, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.204 sec <<< FAILURE!
+updateTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.044 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.ReimbursementDaoTest.updateTest(ReimbursementDaoTest.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -39,7 +39,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-findAllTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.009 sec  <<< ERROR!
+findAllTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.004 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.ReimbursementDaoTest.findAllTest(ReimbursementDaoTest.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -76,7 +76,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-findByIdTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+findByIdTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.004 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.projectone.repo.test.ReimbursementDaoTest.findByIdTest(ReimbursementDaoTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -113,7 +113,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-createTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.075 sec  <<< FAILURE!
+createTest(com.projectone.repo.test.ReimbursementDaoTest)  Time elapsed: 0.058 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)
