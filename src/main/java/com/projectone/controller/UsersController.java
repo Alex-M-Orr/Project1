@@ -43,10 +43,10 @@ public class UsersController {
 		int roleId = 1;
 		Users newUser = new Users(0, username, password, firstName, lastName, email, roleId);
 		if(us.registerUser(newUser) != null) {
-			return "/html/index.html";
+			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/";
 		}
 		else {
-			return "/html/index.html";
+			return "http://18.191.119.230:8081/Project1-0.0.1-SNAPSHOT/";
 		}		
 	}
 }
