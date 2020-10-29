@@ -2,20 +2,22 @@ var filterTable=0;
 
 
 var sessionUserType;
+var sessionUserId;
 asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", setUserType);
 
 function setUserType(user){
-  console.log("hello setusertype");
   sessionUserType = user.userRoleId;
+  sessionUserId = user.userID;
   console.log(sessionUserType);
 }
-console.log("hello");
-console.log(sessionUserType);
-
 function renderReimbursementTable(reimbursements){
   document.getElementById("listAllReimbursements").innerHTML = "";
   for(const reimbursement of reimbursements){
     if(reimbursement.reimbStatusId != filterTable && filterTable!=0){
+      continue;
+    }
+    if(sessionUserType === 1 && reimbursement.reimbAuthor != sessionUserId ){
+      console.log("skip");
       continue;
     }
     let status;
