@@ -84,6 +84,7 @@ function renderReimbursementTable(reimbursements){
 }
 
 function renderResolutionForm(){
+  console.log("render resolution called");
   if(sessionUserType === 1 || sessionUserType === 0 ){
     const resolutionForm = document.getElementById('resolveRequestForm');
     resolutionForm.style.display = "none";
