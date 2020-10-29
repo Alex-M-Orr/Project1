@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>ClownTown - The Worlds Largest Traveling Clown and Bear Circus</title>
-    <script defer type="text/javascript" src="../js/network.js"></script>
-    <script defer type="text/javascript" src="../js/dom.js"></script>
+    <script defer type="text/javascript" src="js/network.js"></script>
+  	<script defer type="text/javascript" src="js/login.js"></script>
+  	<script defer type="text/javascript" src="js/dom.js"></script>
     <!--bootstrap, fonts, and css normalizer-->
     <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300|Ubuntu" rel="stylesheet">
@@ -45,7 +46,7 @@
   </head>
   <body onload="fetchReimbTable()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top text-light">
-    	<a class="navbar-brand" href="http://localhost:8080/Project1/html/index.html">ClownTown</a>
+    	<a class="navbar-brand" href="http://localhost:8080/Project1/">ClownTown</a>
     	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
     	</button>
@@ -69,10 +70,10 @@
     				<a class="nav-link dropdown-toggle text-light" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
     					Account
     				</a>
-    				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    					<a class="dropdown-item" href="#loginModal" data-toggle="modal" >Login</a>
+    				<div class="dropdown-menu dropdown-menu-right" id="myAccountDropDown" aria-labelledby="navbarDropdown">
+    					<!--<a class="dropdown-item" href="#loginModal" data-toggle="modal" >Login</a>
     					<div class="dropdown-divider"></div>
-    					<a class="dropdown-item" href="#registerModal" data-toggle="modal" >Register</a>
+    					<a class="dropdown-item" href="#registerModal" data-toggle="modal" >Register</a>-->
     				</div>
     			</li>
     		</ul>

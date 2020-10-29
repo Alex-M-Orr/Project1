@@ -47,9 +47,9 @@ public class ReimbursementController {
 		reimb.setReimbResolver(sc.getSessionUser(req).getUserID());
 		
 		if(rs.update(reimb) != null){
-			return "viewReimbursements.html";
+			return "viewReimbursements.page";
 		}
-		return "user.html";
+		return "/";
 	}
 	
 }

@@ -48,7 +48,21 @@ function renderReimbursementTable(reimbursements){
     authorTd.innerText = reimbursement.reimbAuthor;
     resolverTd.innerText = reimbursement.reimbResolver;
     statusTd.innerText = status;
-    typeTd.innerText = reimbursement.reimbTypeId;
+
+    switch (reimbursement.reimbTypeId) {
+      case 1:
+        typeTd.innerText = "Lodging";
+        break;
+      case 2:
+        typeTd.innerText = "Travel";
+        break;
+      case 3:
+        typeTd.innerText = "Food";
+        break;
+      default:
+        typeTd.innerText = "Other";
+
+    }
 
     tr.append(idTd, amountTd, descriptionTd, subDateTd, resDateTd, authorTd, resolverTd, statusTd, typeTd);
     document.getElementById("listAllReimbursements").append(tr);

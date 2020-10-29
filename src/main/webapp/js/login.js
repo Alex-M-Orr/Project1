@@ -21,6 +21,46 @@ function renderDropDown(user){
 
     madd.append(loginA, dividerDiv, registerA);
   }
+  else if(user.userRoleId===1){
+    const requestRimbA = document.createElement("a");
+    const viewReimbA = document.createElement("a");
+    const dividerDiv = document.createElement("div");
+    const logoutA = document.createElement("a");
+
+    requestRimbA.setAttribute("class", "dropdown-item");
+    requestRimbA.setAttribute("href", "requestReimbursement.page");
+    requestRimbA.innerText = "Request Reimbursement";
+
+    viewReimbA.setAttribute("class", "dropdown-item");
+    viewReimbA.setAttribute("href", "viewReimbursements.page");
+    viewReimbA.innerText = "View Reimbursements";
+
+    dividerDiv.setAttribute("class", "dropdown-divider");
+
+    logoutA.setAttribute("class", "dropdown-item");
+    logoutA.setAttribute("href", "logout.page");
+    logoutA.innerText = "Logout";
+
+    madd.append(requestRimbA, viewReimbA, dividerDiv, logoutA);
+  }
+  else if(user.userRoleId===2){
+    const viewReimbA = document.createElement("a");
+    const dividerDiv = document.createElement("div");
+    const logoutA = document.createElement("a");
+
+    viewReimbA.setAttribute("class", "dropdown-item");
+    viewReimbA.setAttribute("href", "viewReimbursements.page");
+    viewReimbA.innerText = "View Reimbursements";
+
+    dividerDiv.setAttribute("class", "dropdown-divider");
+
+    logoutA.setAttribute("class", "dropdown-item");
+    logoutA.setAttribute("href", "logout.page");
+    logoutA.innerText = "Logout";
+
+    madd.append(viewReimbA, dividerDiv, logoutA);
+
+  }
 }
 
 function fetchuserinfo(){
@@ -28,4 +68,4 @@ function fetchuserinfo(){
   asyncFetch("http://localhost:8080/Project1/userinfo.json", renderDropDown);
 }
 
-//fetchuserinfo();
+fetchuserinfo();

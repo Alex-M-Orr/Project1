@@ -24,26 +24,25 @@ public class RequestForwarder {
 	public String routes(HttpServletRequest req) {
 		switch (req.getRequestURI()){
 		case "/Project1/login.page":
-			System.out.println("ROUTER TESTING ALEXORR");
 			return uc.login(req);
 		case "/Project1-alpha/login.page":
-			System.out.println("ROUTER TESTING ALEXORR alpha");
 			return uc.login(req);
-		case "/Project1/html/register.page":
+		case "/Project1/register.page":
 			return uc.registerUser(req);
-		case "/Project1/html/reimbursementRequest.page":
-			if(sc.getSessionUser(req) == null) {
-				sc.setSession(req, testuser);
-			}
+		case "/Project1/reimbursementRequest.page":
 			return rc.requestReimbursement(req);
-		case "/Project1/html/requestresolution.page":
-			if(sc.getSessionUser(req) == null) {
-				sc.setSession(req, testManager);
-			}
+		case "/Project1/requestresolution.page":
 			return rc.updateReimbursement(req);
+		case "/Project1/viewReimbursements.page":
+			return "/html/viewReimbursements.html";
+		case "/Project1/requestReimbursement.page":
+			return "html/RequestReimbursement.html";
+		case "/Project1/logout.page":
+			System.out.println("logging out");
+			sc.invalidate(req);
+			return "/";
 		default: 
-			System.out.println("default routing");
-			return "/html/viewReimbursements.html"; 
+			return "/"; 
 		}
 	}
 

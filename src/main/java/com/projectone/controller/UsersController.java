@@ -31,7 +31,7 @@ public class UsersController {
 		else {
 			//invalid login
 			System.out.println("defaulting to index");
-			return "/html/viewReimbursements.html";
+			return "/";
 		}
 	}
 	public String registerUser(HttpServletRequest req) {
