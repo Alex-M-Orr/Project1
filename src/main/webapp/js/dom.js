@@ -9,6 +9,7 @@ function setUserType(user){
   console.log("sessionUserType set");
   sessionUserType = user.userRoleId;
   sessionUserId = user.userID;
+  renderResolutionForm();
   console.log(sessionUserType);
 }
 
@@ -93,7 +94,7 @@ function renderResolutionForm(){
     resolutionForm.style.display = "none";
   }
 }
-renderResolutionForm();
+
 // function renderUsersTable(users){
 //   for(const user of users){
 //     const tr = document.createElement("tr");
