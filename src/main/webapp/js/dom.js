@@ -90,11 +90,11 @@ function renderUsersTable(users){
 
 function setFilter(){
   filterTable = document.getElementById("requestFilter").value;
-  asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
+  asyncFetch("http://18.191.119.230:8081/Project1-alpha/reimbursementlist.json", renderReimbursementTable);
 }
 function fetchReimbTable(){
-  asyncFetch("http://localhost:8080/Project1/reimbursementlist.json", renderReimbursementTable);
+  asyncFetch("http://18.191.119.230:8081/Project1-alpha/reimbursementlist.json", renderReimbursementTable);
 }
 
 
-asyncFetch("http://localhost:8080/Project1/userslist.json", renderUsersTable);
+asyncFetch("http://18.191.119.230:8081/Project1-alpha/userslist.json", renderUsersTable);

@@ -27,14 +27,13 @@ public class ReimbursementController {
 		String description = req.getParameter("description");
 		int type = Integer.parseInt(req.getParameter("type"));
 		 if(sc.getSessionUser(req) == null) {
-			 System.out.println("User new logged in");
 			 return "index.html";
 		 }
 		 else {
 			 int userId = sc.getSessionUser(req).getUserID();
 			 Reimbursement reimb = new Reimbursement(amount, description, userId, type);
 			 rs.Create(reimb);
-			 return "user.html";
+			 return "viewReimbursements.page";
 		 }		
 	}
 
