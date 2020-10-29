@@ -4,7 +4,9 @@ asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", setUserTyp
 
 
 function setUserType(user){
+  console.log("hello setusertype");
   var sessionUserType = user.userRoleId;
+  console.log(sessionUserType);
 }
 console.log(sessionUserType);
 
