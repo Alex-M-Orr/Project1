@@ -10,6 +10,7 @@ function setUserType(user){
   sessionUserId = user.userID;
   console.log(sessionUserType);
 }
+
 function renderReimbursementTable(reimbursements){
   document.getElementById("listAllReimbursements").innerHTML = "";
   for(const reimbursement of reimbursements){
@@ -17,7 +18,6 @@ function renderReimbursementTable(reimbursements){
       continue;
     }
     if(sessionUserType === 1 && reimbursement.reimbAuthor != sessionUserId ){
-      console.log("skip");
       continue;
     }
     let status;
@@ -82,24 +82,32 @@ function renderReimbursementTable(reimbursements){
     document.getElementById("listAllReimbursements").append(tr);
   }
 }
-function renderUsersTable(users){
-  for(const user of users){
-    const tr = document.createElement("tr");
-    const idTd = document.createElement("td");
-    const fnameTd = document.createElement("td");
-    const lnameTd = document.createElement("td");
-    const emailTd = document.createElement("td");
-    const roleTd = document.createElement("td");
 
-    idTd.innerText = user.userID;
-    fnameTd.innerText = user.userFirstName;
-    lnameTd.innerText = user.userLastName;
-    emailTd.innerText = user.userEmail;
-    roleTd.innerText = user.userRoleId;
-    tr.append(idTd, fnameTd, lnameTd, emailTd, roleTd);
-    document.getElementById("ListAllUsers").appendChild(tr);
+function renderResolutionForm(){
+  if(sessionUserType === 1 || sessionUserType === 0 ){
+    const resolutionForm = document.getElementById('resolveRequestForm');
+    resolutionForm.style.display = "none";
   }
 }
+
+// function renderUsersTable(users){
+//   for(const user of users){
+//     const tr = document.createElement("tr");
+//     const idTd = document.createElement("td");
+//     const fnameTd = document.createElement("td");
+//     const lnameTd = document.createElement("td");
+//     const emailTd = document.createElement("td");
+//     const roleTd = document.createElement("td");
+//
+//     idTd.innerText = user.userID;
+//     fnameTd.innerText = user.userFirstName;
+//     lnameTd.innerText = user.userLastName;
+//     emailTd.innerText = user.userEmail;
+//     roleTd.innerText = user.userRoleId;
+//     tr.append(idTd, fnameTd, lnameTd, emailTd, roleTd);
+//     document.getElementById("ListAllUsers").appendChild(tr);
+//   }
+// }
 // renderTable(mockedUsers);
 
 function setFilter(){
@@ -111,4 +119,4 @@ function fetchReimbTable(){
 }
 
 
-asyncFetch("http://18.191.119.230:8081/Project1-alpha/userslist.json", renderUsersTable);
+// asyncFetch("http://18.191.119.230:8081/Project1-alpha/userslist.json", renderUsersTable);
