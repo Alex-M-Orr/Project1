@@ -2,10 +2,11 @@ var filterTable=0;
 
 asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", setUserType);
 
+var sessionUserType;
 
 function setUserType(user){
   console.log("hello setusertype");
-  var sessionUserType = user.userRoleId;
+  sessionUserType = user.userRoleId;
   console.log(sessionUserType);
 }
 console.log(sessionUserType);
