@@ -29,15 +29,29 @@ public class RequestForwarder {
 			return uc.login(req);
 		case "/Project1/register.page":
 			return uc.registerUser(req);
+		case "/Project1-alpha/register.page":
+			return uc.registerUser(req);
 		case "/Project1/reimbursementRequest.page":
+			return rc.requestReimbursement(req);
+		case "/Project1-alpha/reimbursementRequest.page":
 			return rc.requestReimbursement(req);
 		case "/Project1/requestresolution.page":
 			return rc.updateReimbursement(req);
+		case "/Project1-alpha/requestresolution.page":
+			return rc.updateReimbursement(req);
 		case "/Project1/viewReimbursements.page":
+			return "/html/viewReimbursements.html";
+		case "/Project1-alpha/viewReimbursements.page":
 			return "/html/viewReimbursements.html";
 		case "/Project1/requestReimbursement.page":
 			return "html/RequestReimbursement.html";
+		case "/Project1-alpha/requestReimbursement.page":
+			return "html/RequestReimbursement.html";
 		case "/Project1/logout.page":
+			System.out.println("logging out");
+			sc.invalidate(req);
+			return "/";
+		case "/Project1-alpha/logout.page":
 			System.out.println("logging out");
 			sc.invalidate(req);
 			return "/";
