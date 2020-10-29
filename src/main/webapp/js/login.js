@@ -64,7 +64,6 @@ function renderDropDown(user){
 }
 
 function fetchuserinfo(){
-  console.log('stylesheet');
   asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", renderDropDown);
 }
 

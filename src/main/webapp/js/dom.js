@@ -1,5 +1,13 @@
 var filterTable=0;
 
+asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", setUserType);
+
+
+function setUserType(user){
+  var sessionUserType = user.userRoleId;
+}
+console.log(sessionUserType);
+
 function renderReimbursementTable(reimbursements){
   document.getElementById("listAllReimbursements").innerHTML = "";
   for(const reimbursement of reimbursements){
