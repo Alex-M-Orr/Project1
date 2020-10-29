@@ -9,6 +9,7 @@ function setUserType(user){
   sessionUserType = user.userRoleId;
   console.log(sessionUserType);
 }
+console.log("hello");
 console.log(sessionUserType);
 
 function renderReimbursementTable(reimbursements){
