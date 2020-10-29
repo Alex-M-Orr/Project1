@@ -6,6 +6,7 @@ var sessionUserId;
 asyncFetch("http://18.191.119.230:8081/Project1-alpha/userinfo.json", setUserType);
 
 function setUserType(user){
+  console.log("sessionUserType set");
   sessionUserType = user.userRoleId;
   sessionUserId = user.userID;
   console.log(sessionUserType);
@@ -85,6 +86,7 @@ function renderReimbursementTable(reimbursements){
 
 function renderResolutionForm(){
   console.log("render resolution called " + sessionUserType);
+
   if(sessionUserType === 1 || sessionUserType == 0 ){
     console.log("render resolution if");
     const resolutionForm = document.getElementById('resolveRequestForm');
