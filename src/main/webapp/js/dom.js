@@ -89,7 +89,7 @@ function renderResolutionForm(){
     resolutionForm.style.display = "none";
   }
 }
-
+renderResolutionForm();
 // function renderUsersTable(users){
 //   for(const user of users){
 //     const tr = document.createElement("tr");
