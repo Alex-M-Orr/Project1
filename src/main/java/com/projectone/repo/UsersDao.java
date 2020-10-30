@@ -47,7 +47,22 @@ public class UsersDao implements DaoContract<Users, Integer>{
 		}
 		return null; 
 	}
-
+	public Users findByUsername(String i) {
+		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+			String sql = "select * from ers_users where ers_username = ?";
+			PreparedStatement s = conn.prepareStatement(sql);
+			s.setString(1, i);
+			ResultSet rs = s.executeQuery();
+			rs.next();
+			Users user = new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+			rs.close();
+			s.close();
+			return user;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
 	@Override
 	public Users update(Users t) {
 		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
@@ -71,7 +86,7 @@ public class UsersDao implements DaoContract<Users, Integer>{
 	@Override
 	public int delete(Users t) {
 		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
-			String sql = "delete from ers_users where user_id = ?";
+			String sql = "delete from ers_users where ers_user_id = ?";
 			PreparedStatement s = conn.prepareStatement(sql);
 			s.setInt(1, t.getUserID());
 			s.executeUpdate();
@@ -79,8 +94,8 @@ public class UsersDao implements DaoContract<Users, Integer>{
 			return 1;
 		} catch(SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return 0;
 	}
 
 	@Override

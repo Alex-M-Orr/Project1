@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsersDataController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.controller</a> &gt; <span class="el_source">UsersDataController.java</span></div><h1>UsersDataController.java</h1><pre class="source lang-java linenums">package com.projectone.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.projectone.config.SessionController;
+import com.projectone.model.Users;
+import com.projectone.service.UsersService;
+
+public class UsersDataController {
+	private UsersService us;
+	private SessionController sc;
+
+	public UsersDataController(UsersService us, SessionController sc) {
+<span class="nc" id="L19">		super();</span>
+<span class="nc" id="L20">		this.us = us;</span>
+<span class="nc" id="L21">		this.sc = sc;</span>
+<span class="nc" id="L22">	}</span>
+
+	public UsersDataController() {
+<span class="nc" id="L25">		this(new UsersService(),  new SessionController());</span>
+<span class="nc" id="L26">	}</span>
+	
+	public void sendAllData(HttpServletResponse resp) {
+<span class="nc" id="L29">		List&lt;Users&gt; users = us.findAll();</span>
+		try {
+<span class="nc" id="L31">			resp.getWriter().println(new ObjectMapper().writeValueAsString(users));</span>
+<span class="nc" id="L32">		} catch (IOException e) {</span>
+<span class="nc" id="L33">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L35">	}</span>
+	public void getSessionData(HttpServletResponse resp, HttpServletRequest req) {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">		if(sc.getSessionUser(req) != null) {</span>
+<span class="nc" id="L38">			Users u = new Users(sc.getSessionUser(req).getUserID(), sc.getSessionUser(req).getUserFirstName(),</span>
+<span class="nc" id="L39">					sc.getSessionUser(req).getUserLastName(), sc.getSessionUser(req).getUserEmail(), sc.getSessionUser(req).getUserRoleId());</span>
+			try {
+<span class="nc" id="L41">				resp.getWriter().println(new ObjectMapper().writeValueAsString(u));</span>
+<span class="nc" id="L42">			} catch (IOException e) {</span>
+<span class="nc" id="L43">				e.printStackTrace();</span>
+			}
+<span class="nc" id="L45">		}</span>
+		else {
+<span class="nc" id="L47">			String nosesh= &quot;no session&quot;;</span>
+			try {
+<span class="nc" id="L49">				resp.getWriter().println(new ObjectMapper().writeValueAsString(nosesh));</span>
+<span class="nc" id="L50">			} catch (IOException e) {</span>
+<span class="nc" id="L51">				e.printStackTrace();</span>
+			}
+		}
+		
+<span class="nc" id="L55">	}</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

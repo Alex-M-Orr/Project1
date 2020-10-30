@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsersDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.repo</a> &gt; <span class="el_source">UsersDao.java</span></div><h1>UsersDao.java</h1><pre class="source lang-java linenums">package com.projectone.repo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.projectone.config.EnvironmentConnectionUtil;
+import com.projectone.model.Users;
+
+<span class="fc" id="L13">public class UsersDao implements DaoContract&lt;Users, Integer&gt;{</span>
+
+	@Override
+	public List&lt;Users&gt; findAll() {
+<span class="fc" id="L17">		List&lt;Users&gt; users = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L18">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L19">			String sql = &quot;select * from ers_users&quot;;</span>
+<span class="fc" id="L20">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L21">			ResultSet rs = s.executeQuery();</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">			while (rs.next()) {</span>
+<span class="fc" id="L23">				users.add(new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)));</span>
+			}
+<span class="pc" id="L25">			return users;</span>
+
+<span class="pc bpc" id="L27" title="7 of 8 branches missed.">		}catch (SQLException e) {</span>
+<span class="nc" id="L28">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L30">		return null;</span>
+	}
+
+	@Override
+	public Users findById(Integer i) {
+<span class="fc" id="L35">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L36">			String sql = &quot;select * from ers_users where ers_user_id = ?&quot;;</span>
+<span class="fc" id="L37">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L38">			s.setInt(1, i);</span>
+<span class="fc" id="L39">			ResultSet rs = s.executeQuery();</span>
+<span class="fc" id="L40">			rs.next();</span>
+<span class="fc" id="L41">			Users user = new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));</span>
+<span class="fc" id="L42">			rs.close();</span>
+<span class="fc" id="L43">			s.close();</span>
+<span class="fc" id="L44">			return user;</span>
+<span class="pc bpc" id="L45" title="4 of 8 branches missed.">		}catch(SQLException e) {</span>
+<span class="fc" id="L46">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L48">		return null; </span>
+	}
+	public Users findByUsername(String i) {
+<span class="fc" id="L51">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L52">			String sql = &quot;select * from ers_users where ers_username = ?&quot;;</span>
+<span class="fc" id="L53">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L54">			s.setString(1, i);</span>
+<span class="fc" id="L55">			ResultSet rs = s.executeQuery();</span>
+<span class="fc" id="L56">			rs.next();</span>
+<span class="fc" id="L57">			Users user = new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));</span>
+<span class="fc" id="L58">			rs.close();</span>
+<span class="fc" id="L59">			s.close();</span>
+<span class="fc" id="L60">			return user;</span>
+<span class="pc bpc" id="L61" title="4 of 8 branches missed.">		}catch(SQLException e) {</span>
+<span class="fc" id="L62">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L64">		return null; </span>
+	}
+	@Override
+	public Users update(Users t) {
+<span class="fc" id="L68">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L69">			String sql = &quot;update ers_users set user_first_name=?, user_last_name=?, user_email=?, user_role_id=? where ers_user_id = ?&quot;;</span>
+<span class="fc" id="L70">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L71">			s.setString(1, t.getUserFirstName());</span>
+<span class="fc" id="L72">			s.setString(2, t.getUserLastName());</span>
+<span class="fc" id="L73">			s.setString(3, t.getUserEmail());</span>
+<span class="fc" id="L74">			s.setInt(4, t.getUserRoleId());</span>
+<span class="fc" id="L75">			s.setInt(5, t.getUserID());</span>
+<span class="fc" id="L76">			s.executeUpdate();		</span>
+<span class="fc" id="L77">			s.close();</span>
+<span class="pc" id="L78">			return t;</span>
+<span class="pc bpc" id="L79" title="7 of 8 branches missed.">		}catch(SQLException e) {</span>
+
+		}
+<span class="nc" id="L82">		return null;</span>
+	}
+
+	//i don't think i want to be able to delete users?
+	@Override
+	public int delete(Users t) {
+<span class="fc" id="L88">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L89">			String sql = &quot;delete from ers_users where ers_user_id = ?&quot;;</span>
+<span class="fc" id="L90">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L91">			s.setInt(1, t.getUserID());</span>
+<span class="fc" id="L92">			s.executeUpdate();</span>
+<span class="fc" id="L93">			s.close();</span>
+<span class="fc" id="L94">			return 1;</span>
+<span class="pc bpc" id="L95" title="4 of 8 branches missed.">		} catch(SQLException e) {</span>
+<span class="nc" id="L96">			e.printStackTrace();</span>
+<span class="nc" id="L97">			return 0;</span>
+		}
+	}
+
+	@Override
+	public Users Create(Users t) {
+<span class="fc" id="L103">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L104">			String sql = &quot;insert into ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id)&quot;</span>
+					+ &quot; values (?,?,?,?,?,?)&quot;;
+<span class="fc" id="L106">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L107">			s.setString(1, t.getUsername());</span>
+<span class="fc" id="L108">			s.setString(2, t.getPassword());</span>
+<span class="fc" id="L109">			s.setString(3, t.getUserFirstName());</span>
+<span class="fc" id="L110">			s.setString(4, t.getUserLastName());</span>
+<span class="fc" id="L111">			s.setString(5, t.getUserEmail());</span>
+<span class="fc" id="L112">			s.setInt(6, t.getUserRoleId());</span>
+<span class="fc" id="L113">			s.executeUpdate();</span>
+<span class="fc" id="L114">			s.close();</span>
+<span class="fc" id="L115">			return t;</span>
+<span class="pc bpc" id="L116" title="4 of 8 branches missed.">		}catch(SQLException e) {</span>
+<span class="nc" id="L117">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L119">		return null;</span>
+	}
+
+	public Users login(String username, String password) {
+<span class="fc" id="L123">			Users user = null;</span>
+<span class="fc" id="L124">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L125">			String sql = &quot;select * from ers_users where ers_username = ? and ers_password = md5(? || ? || ?)&quot;;</span>
+<span class="fc" id="L126">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L127">			s.setString(1, username);</span>
+<span class="fc" id="L128">			s.setString(2, username);</span>
+<span class="fc" id="L129">			s.setString(3, password);</span>
+<span class="fc" id="L130">			s.setString(4, &quot;clown&quot;);</span>
+<span class="fc" id="L131">			ResultSet rs = s.executeQuery();</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">			while(rs.next()) {</span>
+<span class="fc" id="L133">				user = new Users(rs.getInt(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));</span>
+			}
+<span class="fc" id="L135">			s.close();</span>
+<span class="fc" id="L136">			rs.close();</span>
+<span class="pc" id="L137">			return user;</span>
+<span class="pc bpc" id="L138" title="7 of 8 branches missed.">		}catch(SQLException e) {</span>
+<span class="nc" id="L139">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L141">		return null;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

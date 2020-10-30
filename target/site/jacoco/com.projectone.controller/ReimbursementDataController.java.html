@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReimbursementDataController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.controller</a> &gt; <span class="el_source">ReimbursementDataController.java</span></div><h1>ReimbursementDataController.java</h1><pre class="source lang-java linenums">package com.projectone.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.projectone.model.Reimbursement;
+import com.projectone.service.ReimbursementService;
+
+public class ReimbursementDataController {
+	private ReimbursementService rs;
+
+	public ReimbursementDataController(ReimbursementService rs) {
+<span class="nc" id="L16">		super();</span>
+<span class="nc" id="L17">		this.rs = rs;</span>
+<span class="nc" id="L18">	}</span>
+
+	public ReimbursementDataController() {
+<span class="nc" id="L21">		this(new ReimbursementService());</span>
+<span class="nc" id="L22">	}</span>
+	public void sendAllData(HttpServletResponse resp) {
+<span class="nc" id="L24">		List&lt;Reimbursement&gt; reimbursements = rs.findAll();</span>
+		try {
+<span class="nc" id="L26">			resp.getWriter().println(new ObjectMapper().writeValueAsString(reimbursements));</span>
+<span class="nc" id="L27">		} catch (IOException e) {</span>
+<span class="nc" id="L28">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L30">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

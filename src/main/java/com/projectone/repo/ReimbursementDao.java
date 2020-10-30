@@ -87,18 +87,18 @@ public class ReimbursementDao implements DaoContract<Reimbursement, Integer> {
 
 	@Override
 	public int delete(Reimbursement t) {
-		
-		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
-			String sql = "delete from ers_reimbursement where reimb_id = ?";
-			PreparedStatement s = conn.prepareStatement(sql);
-			s.setInt(1, t.getReimbId());
-			s.executeUpdate();
-			s.close();
-			return 1;
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
 		return 0;
+//		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+//			String sql = "delete from ers_reimbursement where reimb_id = ?";
+//			PreparedStatement s = conn.prepareStatement(sql);
+//			s.setInt(1, t.getReimbId());
+//			s.executeUpdate();
+//			s.close();
+//			return 1;
+//		} catch(SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return 0;
 	}
 
 	@Override

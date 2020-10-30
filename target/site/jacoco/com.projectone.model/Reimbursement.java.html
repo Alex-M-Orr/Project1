@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reimbursement.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.model</a> &gt; <span class="el_source">Reimbursement.java</span></div><h1>Reimbursement.java</h1><pre class="source lang-java linenums">package com.projectone.model;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+
+public class Reimbursement {
+	
+	private int reimbId;
+	private double reimbAmount;
+	private LocalDateTime reimbSubmitted;
+	private LocalDateTime reimbResolved;
+	private String reimbDescription;
+	private byte[] reimbReceipt;
+	private int reimbAuthor;
+	private int reimbResolver;
+	private int reimbStatusId;
+	private int reimbTypeId;
+	
+	public Reimbursement(int reimbId, double reimbAmount, LocalDateTime reimbSubmitted, LocalDateTime reimbResolved,
+			String reimbDescription, byte[] reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			int reimbTypeId) {
+<span class="fc" id="L22">		super();</span>
+<span class="fc" id="L23">		this.reimbId = reimbId;</span>
+<span class="fc" id="L24">		this.reimbAmount = reimbAmount;</span>
+<span class="fc" id="L25">		this.reimbSubmitted = reimbSubmitted;</span>
+<span class="fc" id="L26">		this.reimbResolved = reimbResolved;</span>
+<span class="fc" id="L27">		this.reimbDescription = reimbDescription;</span>
+<span class="fc" id="L28">		this.reimbReceipt = reimbReceipt;</span>
+<span class="fc" id="L29">		this.reimbAuthor = reimbAuthor;</span>
+<span class="fc" id="L30">		this.reimbResolver = reimbResolver;</span>
+<span class="fc" id="L31">		this.reimbStatusId = reimbStatusId;</span>
+<span class="fc" id="L32">		this.reimbTypeId = reimbTypeId;</span>
+<span class="fc" id="L33">	}</span>
+	public Reimbursement(double reimbAmount, String reimbDescription, int reimbAuthor, int reimbTypeId) {
+<span class="fc" id="L35">		super();</span>
+<span class="fc" id="L36">		this.reimbId = 0;</span>
+<span class="fc" id="L37">		this.reimbAmount = reimbAmount;</span>
+<span class="fc" id="L38">		this.reimbSubmitted = LocalDateTime.now();</span>
+<span class="fc" id="L39">		this.reimbResolved = null;</span>
+<span class="fc" id="L40">		this.reimbDescription = reimbDescription;</span>
+<span class="fc" id="L41">		this.reimbReceipt = null;</span>
+<span class="fc" id="L42">		this.reimbAuthor = reimbAuthor;</span>
+<span class="fc" id="L43">		this.reimbResolver = 0;</span>
+<span class="fc" id="L44">		this.reimbStatusId = 1;</span>
+<span class="fc" id="L45">		this.reimbTypeId = reimbTypeId;</span>
+		
+<span class="fc" id="L47">	}</span>
+	
+	public int getReimbId() {
+<span class="fc" id="L50">		return reimbId;</span>
+	}
+	public void setReimbId(int reimbId) {
+<span class="nc" id="L53">		this.reimbId = reimbId;</span>
+<span class="nc" id="L54">	}</span>
+	public double getReimbAmount() {
+<span class="fc" id="L56">		return reimbAmount;</span>
+	}
+	public void setReimbAmount(double reimbAmount) {
+<span class="fc" id="L59">		this.reimbAmount = reimbAmount;</span>
+<span class="fc" id="L60">	}</span>
+	public LocalDateTime getReimbSubmitted() {
+<span class="nc" id="L62">		return reimbSubmitted;</span>
+	}
+	public void setReimbSubmitted(LocalDateTime reimbSubmitted) {
+<span class="nc" id="L65">		this.reimbSubmitted = reimbSubmitted;</span>
+<span class="nc" id="L66">	}</span>
+	public LocalDateTime getReimbResolved() {
+<span class="fc" id="L68">		return reimbResolved;</span>
+	}
+	public void setReimbResolved(LocalDateTime reimbResolved) {
+<span class="fc" id="L71">		this.reimbResolved = reimbResolved;</span>
+<span class="fc" id="L72">	}</span>
+	public String getReimbDescription() {
+<span class="fc" id="L74">		return reimbDescription;</span>
+	}
+	public void setReimbDescription(String reimbDescription) {
+<span class="nc" id="L77">		this.reimbDescription = reimbDescription;</span>
+<span class="nc" id="L78">	}</span>
+	public byte[] getReimbReceipt() {
+<span class="fc" id="L80">		return reimbReceipt;</span>
+	}
+	public void setReimbReceipt(byte[] reimbReceipt) {
+<span class="nc" id="L83">		this.reimbReceipt = reimbReceipt;</span>
+<span class="nc" id="L84">	}</span>
+	public int getReimbAuthor() {
+<span class="fc" id="L86">		return reimbAuthor;</span>
+	}
+	public void setReimbAuthor(int reimbAuthor) {
+<span class="nc" id="L89">		this.reimbAuthor = reimbAuthor;</span>
+<span class="nc" id="L90">	}</span>
+	public int getReimbResolver() {
+<span class="fc" id="L92">		return reimbResolver;</span>
+	}
+	public void setReimbResolver(int reimbResolver) {
+<span class="fc" id="L95">		this.reimbResolver = reimbResolver;</span>
+<span class="fc" id="L96">	}</span>
+	public int getReimbStatusId() {
+<span class="fc" id="L98">		return reimbStatusId;</span>
+	}
+	public void setReimbStatusId(int reimbStatusId) {
+<span class="nc" id="L101">		this.reimbStatusId = reimbStatusId;</span>
+<span class="nc" id="L102">	}</span>
+	public int getReimbTypeId() {
+<span class="fc" id="L104">		return reimbTypeId;</span>
+	}
+	public void setReimbTypeId(int reimbTypeId) {
+<span class="nc" id="L107">		this.reimbTypeId = reimbTypeId;</span>
+<span class="nc" id="L108">	}</span>
+	
+	@Override
+	public String toString() {
+<span class="fc" id="L112">		return &quot;Reimbursement [reimbId=&quot; + reimbId + &quot;, reimbAmount=&quot; + reimbAmount + &quot;, reimbSubmitted=&quot;</span>
+<span class="fc" id="L113">				+ reimbSubmitted + &quot;, reimbResolved=&quot; + reimbResolved + &quot;, reimbDescription=&quot; + reimbDescription</span>
+<span class="fc" id="L114">				+ &quot;, reimbReceipt=&quot; + Arrays.toString(reimbReceipt) + &quot;, reimbAuthor=&quot; + reimbAuthor</span>
+<span class="fc" id="L115">				+ &quot;, reimbResolver=&quot; + reimbResolver + &quot;, reimbStatusId=&quot; + reimbStatusId + &quot;, reimbTypeId=&quot;</span>
+<span class="fc" id="L116">				+ reimbTypeId + &quot;]&quot;;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

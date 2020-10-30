@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EnvironmentConnectionUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.config</a> &gt; <span class="el_source">EnvironmentConnectionUtil.java</span></div><h1>EnvironmentConnectionUtil.java</h1><pre class="source lang-java linenums">package com.projectone.config;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class EnvironmentConnectionUtil {
+//	private String url = System.getenv(&quot;url&quot;);
+//	private String username = System.getenv(&quot;username&quot;);
+//	private String password = System.getenv(&quot;password&quot;);
+	
+<span class="fc" id="L15">	private String url = &quot;jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project_1&quot;;</span>
+<span class="fc" id="L16">	private String username = &quot;project1_db_admin&quot;;</span>
+<span class="fc" id="L17">	private String password = &quot;Aorr1996!&quot;;</span>
+	
+	{
+		try {
+<span class="fc" id="L21">			Class.forName(&quot;org.postgresql.Driver&quot;);</span>
+<span class="pc" id="L22">		} catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L23">			e.printStackTrace();</span>
+		}
+	}
+	private static EnvironmentConnectionUtil instance;
+
+<span class="fc" id="L28">	private EnvironmentConnectionUtil() {</span>
+
+<span class="fc" id="L30">	}</span>
+	public static EnvironmentConnectionUtil getInstance() {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">		if(instance == null) {</span>
+<span class="fc" id="L33">			instance = new EnvironmentConnectionUtil();</span>
+		}
+<span class="fc" id="L35">		return instance;</span>
+	}
+
+	public Connection getConnection()throws SQLException {
+<span class="fc" id="L39">		return DriverManager.getConnection(url, username, password);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReimbursementDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project1</a> &gt; <a href="index.source.html" class="el_package">com.projectone.repo</a> &gt; <span class="el_source">ReimbursementDao.java</span></div><h1>ReimbursementDao.java</h1><pre class="source lang-java linenums">package com.projectone.repo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.projectone.config.EnvironmentConnectionUtil;
+import com.projectone.model.Reimbursement;
+
+<span class="fc" id="L14">public class ReimbursementDao implements DaoContract&lt;Reimbursement, Integer&gt; {</span>
+
+	@Override
+	public List&lt;Reimbursement&gt; findAll() {
+<span class="fc" id="L18">		List&lt;Reimbursement&gt; reimbursements = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L19">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L20">			String sql = &quot;select * from ers_reimbursement&quot;;</span>
+<span class="fc" id="L21">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L22">			ResultSet rs = s.executeQuery();</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">			while (rs.next()) {</span>
+<span class="fc" id="L24">				LocalDateTime submitted = rs.getObject(3, LocalDateTime.class);</span>
+<span class="fc" id="L25">				LocalDateTime resolved = rs.getObject(4, LocalDateTime.class);</span>
+<span class="fc" id="L26">				reimbursements.add(new Reimbursement(rs.getInt(1),rs.getDouble(2), submitted, resolved,</span>
+<span class="fc" id="L27">						rs.getString(5), rs.getBytes(6),rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10)));</span>
+			}
+<span class="fc" id="L29">			rs.close();</span>
+<span class="fc" id="L30">			s.close();</span>
+<span class="pc" id="L31">			return reimbursements;</span>
+<span class="pc bpc" id="L32" title="7 of 8 branches missed.">		}catch (SQLException e) {</span>
+<span class="nc" id="L33">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L35">		return null;</span>
+	}
+
+	@Override
+	public Reimbursement findById(Integer i) {
+<span class="fc" id="L40">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L41">			String sql = &quot;select * from ers_reimbursement where reimb_id = ?&quot;;</span>
+<span class="fc" id="L42">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L43">			s.setInt(1, i);</span>
+<span class="fc" id="L44">			ResultSet rs = s.executeQuery();</span>
+<span class="fc" id="L45">			rs.next();</span>
+<span class="fc" id="L46">			LocalDateTime submitted = rs.getObject(3, LocalDateTime.class);</span>
+<span class="fc" id="L47">			LocalDateTime resolved = rs.getObject(4, LocalDateTime.class);</span>
+<span class="fc" id="L48">			Reimbursement reimbursement = new Reimbursement(rs.getInt(1),rs.getDouble(2), submitted, resolved,</span>
+<span class="fc" id="L49">					rs.getString(5), rs.getBytes(6),rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10));</span>
+<span class="fc" id="L50">			s.close();</span>
+<span class="fc" id="L51">			rs.close();</span>
+<span class="fc" id="L52">			return reimbursement;</span>
+			
+<span class="pc bpc" id="L54" title="4 of 8 branches missed.">		} catch(SQLException e) {</span>
+<span class="fc" id="L55">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L57">		return null;</span>
+	}
+
+	@Override
+	public Reimbursement update(Reimbursement t) {
+<span class="fc" id="L62">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L63">			String sql = &quot;update ers_reimbursement set reimb_amount = ?, reimb_resolved = ?, reimb_description=?,&quot;</span>
+					+ &quot;	reimb_receipt = ?, reimb_resolver = ?, reimb_status_id = ?, reimb_type_id = ? where reimb_id = ?;&quot;;
+<span class="fc" id="L65">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L66">			s.setDouble(1, t.getReimbAmount());</span>
+<span class="fc" id="L67">			s.setObject(2, t.getReimbResolved());</span>
+<span class="fc" id="L68">			s.setString(3, t.getReimbDescription());</span>
+<span class="fc" id="L69">			s.setBytes(4, t.getReimbReceipt());</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">			if(t.getReimbResolver() == 0) {</span>
+<span class="nc" id="L71">				s.setNull(5, java.sql.Types.INTEGER);</span>
+<span class="nc" id="L72">			}</span>
+			else {
+<span class="fc" id="L74">				s.setInt(5, t.getReimbResolver());</span>
+			}
+<span class="fc" id="L76">			s.setInt(6, t.getReimbStatusId());</span>
+<span class="fc" id="L77">			s.setInt(7, t.getReimbTypeId());</span>
+<span class="fc" id="L78">			s.setInt(8, t.getReimbId());</span>
+<span class="fc" id="L79">			s.executeUpdate();</span>
+<span class="fc" id="L80">			s.close();</span>
+<span class="pc" id="L81">			return t;</span>
+<span class="pc bpc" id="L82" title="7 of 8 branches missed.">		}catch(SQLException e) {</span>
+<span class="nc" id="L83">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L85">		return null;</span>
+	}
+
+	@Override
+	public int delete(Reimbursement t) {
+<span class="fc" id="L90">		return 0;</span>
+//		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){
+//			String sql = &quot;delete from ers_reimbursement where reimb_id = ?&quot;;
+//			PreparedStatement s = conn.prepareStatement(sql);
+//			s.setInt(1, t.getReimbId());
+//			s.executeUpdate();
+//			s.close();
+//			return 1;
+//		} catch(SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return 0;
+	}
+
+	@Override
+	public Reimbursement Create(Reimbursement t) {
+<span class="fc" id="L106">		try(Connection conn = EnvironmentConnectionUtil.getInstance().getConnection()){</span>
+<span class="fc" id="L107">			String sql = &quot;insert into ers_reimbursement (reimb_amount, reimb_description,&quot;</span>
+					+ &quot; reimb_author, reimb_type_id) values(?, ?, ?, ?)&quot;;
+<span class="fc" id="L109">			PreparedStatement s = conn.prepareStatement(sql);</span>
+<span class="fc" id="L110">			s.setDouble(1, t.getReimbAmount());</span>
+<span class="fc" id="L111">			s.setString(2, t.getReimbDescription());</span>
+<span class="fc" id="L112">			s.setInt(3, t.getReimbAuthor());</span>
+<span class="fc" id="L113">			s.setInt(4, t.getReimbTypeId());</span>
+<span class="fc" id="L114">			s.executeUpdate();</span>
+<span class="fc" id="L115">			s.close();</span>
+<span class="pc" id="L116">			return t;</span>
+<span class="pc bpc" id="L117" title="7 of 8 branches missed.">		} catch(SQLException e) {</span>
+<span class="nc" id="L118">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L120">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
