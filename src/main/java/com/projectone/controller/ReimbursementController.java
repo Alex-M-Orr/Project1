@@ -27,7 +27,7 @@ public class ReimbursementController {
 		String description = req.getParameter("description");
 		int type = Integer.parseInt(req.getParameter("type"));
 		 if(sc.getSessionUser(req) == null) {
-			 return "index.html";
+			 return "/";
 		 }
 		 else {
 			 int userId = sc.getSessionUser(req).getUserID();
