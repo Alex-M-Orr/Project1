@@ -27,7 +27,7 @@ List of features ready and TODOs for future development
 * Employees can create a new reimbursement request and view and previous reimbursement requests.
 * Finance managers can view any past reimbursement requests and accept or reject them.
 
-##Getting Started
+## Getting Started
 Open up your terminal and navigate to desired folder to copy the project using cd /(location).
 run git clone https://github.com/Alex-M-Orr/Project1.git
 Open up project in your desired Java IDE.
